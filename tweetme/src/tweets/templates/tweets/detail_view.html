@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Detail view</title>
+</head>
+<body>
+
+{% extends "base.html" %}
+{% block content %}
+
+{{object.content}}<br/>
+{{object.user}}<br/>
+{{object.timestamp}}<br/>
+{{object.timestamp|timesince}}
+
+{% endblock content %}
+
+</body>
+</html>

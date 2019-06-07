@@ -1,0 +1,26 @@
+
+{% extends "base.html" %}
+{% block content %}
+{% include "tweets/search_form.html" %} <br/>
+
+{% for obj in object_list %}
+    <div class="media">
+        {% if obj.image %}
+            <img class="mr-3" src="..." alt="Generic placeholder image">
+        {% endif %}
+  <div class="media-body">
+    {{ obj.content }} <br/>
+      via {{ obj.user }} | {{ obj.timestamp|timesince  }} ago
+      | <a href="{{obj.get_absolute_url}}">View</a>
+  </div>
+</div>
+<hr/>
+{% empty%}
+    {% if request.Get.q %}
+    No tweet found.
+    {% else %}
+    No tweets
+    {% endif %}
+{% endfor %}
+{% endblock content %}
+
